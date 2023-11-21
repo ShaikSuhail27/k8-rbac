@@ -1,0 +1,33 @@
+## namespace creation
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: roboshop
+---
+### role creation for giving permissions to the particular role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: roboshop
+  name: Roboshop-Admin
+rules:
+- apiGroups: ["*"] # "" indicates the core API group
+  resources: ["*"]
+  verbs: ["*"] # action on resources-->CRUD
+---
+## role binding is for particular user which we are assigning
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: roboshop-admin
+  namespace: roboshop
+subjects:
+# You can specify more than one "subject"
+- kind: User
+  name: suhail # "name" is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: Roboshop-Admin # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io
