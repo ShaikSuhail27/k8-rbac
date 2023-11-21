@@ -49,7 +49,7 @@ metadata:
   name: roboshop-cluster-reader
 subjects:
 - kind: User
-  name: ramesh # Name is case sensitive
+  name: suhail # Name is case sensitive
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
