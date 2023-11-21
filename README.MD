@@ -7,5 +7,5 @@ steps:
 1. Need to create one IAM user for authentication purpose.
 2. namespace
 3. role (what are the permissions we need to give)
-4. rolebinding (for which user we need to bind)
-5.
+4. rolebinding (for which user we need to bind) 
+5. 
